@@ -1,0 +1,130 @@
+import exceptions.MothersAngerException;
+import locations.Castle;
+import locations.CastleRoom;
+
+public class Main {
+    public static void main (String[] args) {
+        Dress dress = new Dress("старомодным и нелепым");
+        Princess princess = new Princess("Принцесса","Красивая", dress);
+        Prince prince = new Prince("Королевич", "Милый");
+        Maid maid = new Maid("Фрейлина","Отвественная");
+        Priest priest = new Priest("Священник", "Строгий");
+        Mother mother = new Mother("Мать Королевича", "Злая");
+
+        Castle castle = new Castle();
+        CastleRoom diningRoom = new CastleRoom("Обеденный зал");
+        ParentsHouse parentsHome = new ParentsHouse();
+        HuntersHouse hut = new HuntersHouse();
+
+        diningRoom.addContent("старинные кушанья");
+        diningRoom.addContent("красивая музыка");
+        diningRoom.addContent("изысканная посуда");
+
+        princess.say();
+        prince.admire(princess);
+        castle.comeAlive();
+        maid.say();
+        princess.eatDinner();
+        prince.eatDinner();
+
+        priest.marryCouple(prince, princess);
+        princess.marry();
+
+        prince.goHome(parentsHome);
+        mother.askQuestions(prince);
+
+        try {
+            prince.answerMothersQuestions(false);
+        } catch (
+                MothersAngerException e) {
+            System.out.println("Произошла ошибка: " + e.getMessage());
+        }
+
+        mother.hasNoClue();
+
+        prince.returnHome();
+        priest.hasNoClue();
+        maid.hasNoClue();
+        princess.hasNoClue();
+        prince.hasNoClue();
+
+        princess.birthKids();
+        prince.birthKids();
+    }
+//    // сценарий 2
+//    public static void main(String[] args) {
+//       System.out.println("А что если бы история сложилась иначе?...");
+//
+//      Dress dress = new Dress("старомодным и нелепым");
+//      Princess princess = new Princess("Принцесса", "Красивая", dress);
+//      Prince prince = new Prince("Принц", "Милый");
+//      Priest priest = new Priest("Священник", "Строгий");
+//      Maid maid = new Maid("Фрейлина", "Отвественная");
+//      Mother mother = new Mother("Мать", "Злая");
+//      ParentsHouse parentsHome = new ParentsHouse();
+//      Castle castle = new Castle();
+//
+//        princess.say();
+//        prince.admire(princess);
+//        castle.comeAlive();
+//        maid.say();
+//        princess.eatDinner();
+//       prince.eatDinner();
+//
+//       priest.marryCouple(prince, princess);
+//        princess.marry();
+//
+//        prince.goHome(parentsHome);
+//        mother.askQuestions(prince);
+//       try {
+//            prince.answerMothersQuestions(true);
+//        } catch (MothersAngerException e) {
+//            System.out.println( e.getMessage());
+//            mother.sendToImprisonment(prince);
+//        }
+//
+//        System.out.println("Так Принц и остался в заточении собственной матери навсегда...");
+//        System.out.println("Ну а что случилось с красивой принцессой, уже совсем другая история...");
+//    }
+
+// сценарий 3
+  //public static void main(String[] args) {
+   // System.out.println("Странствующий бард рассказал иную историю о Принце и Принцессе...");
+
+ //   Dress dress = new Dress("старомодным и нелепым");
+ //   Princess princess = new Princess("Принцесса", "Красивая", dress);
+ //   Prince prince = new Prince("Принц", "Милый");
+ //   Priest priest = new Priest("Священник", "Строгий");
+ //   Mother mother = new Mother("Мать", "Злая");
+ //   ParentsHouse parentsHome = new ParentsHouse();
+
+  //  princess.say();
+
+  //  prince.admire(princess);
+  //  priest.marryCouple(prince, princess);
+  //  prince.goHome(parentsHome);
+  //  mother.askQuestions(prince);
+
+  //  try {
+  //      prince.answerMothersQuestions(false);
+  //  } catch (MothersAngerException e) {
+  //      System.out.println(e.getMessage());
+  //  }
+
+  //  mother.suspect();
+  //  boolean keptSecret = prince.keepSecretLonger();
+
+  //  if (keptSecret) {
+  //      princess.waitTooLong();
+  //      prince.fallOutOfLove();
+  //      prince.admire(princess);
+
+
+  //      dress.setDescription("старомодным и нелепым (теперь и для принца)");
+
+  //      System.out.println("\n" + princess.getName() + " и " + prince.getName() +
+  //              " больше не любят друг друга");
+  //      System.out.println("Так печально разрушились чары любви и история на этом закончилась");
+  //  }
+ // }
+}
